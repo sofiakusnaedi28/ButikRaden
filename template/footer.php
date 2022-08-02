@@ -2,8 +2,8 @@
 </div> <!-- end container fluid -->
 
 <footer class="text-center mb-0 py-3">
-    <p class="text-muted small mb-0">Copyright &copy; <?php echo  date("Y");?> <a href="https://www.youtube.com/channel/UCyHwOyTkQBgwfWMOrblSUDg" style="text-decoration:none;">
-    <b>Butik Raden</b></a>. All Rights Reserved</p>
+    <p class="text-muted small mb-0"> <?php echo  date("Y");?> <a href="https://www.youtube.com/channel/UCyHwOyTkQBgwfWMOrblSUDg" style="text-decoration:none;">
+    <b>Butik Raden</b></a></p>
 </footer>
 
     <script src="assets/js/jquery.slim.min.js"></script>
