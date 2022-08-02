@@ -62,7 +62,7 @@ $kodeBarang = $huruf . sprintf("%03s", $urutan);
                         </div>
                         <div class="form-group col-md-6">
                         <label><b>stok</b></label>
-                        <input type="number" name="stok" class="form-control" required>
+                        <input type="number" name="" class="form-control" required>
                         </div>
                     </div>
                 </form>
@@ -87,7 +87,8 @@ $kodeBarang = $huruf . sprintf("%03s", $urutan);
                                 <th>Nama Barang</th>
                                 <th>Harga</th>
                                 <th>Tanggal Input</th>
-                                <th>Opsi</th>
+                                <th>harga asli</th>
+                                <th>stok</th>
                             </tr>
                         </thead>
                         <tbody>
