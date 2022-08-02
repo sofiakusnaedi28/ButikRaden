@@ -5,8 +5,10 @@ if(!empty($_POST['add_barang'])){
     $nama = $_POST['nama_barang'];
     $harga = $_POST['harga_barang'];
     $tgl = $_POST['tgl_input'];
+    $harga = $_POST['harga_asli'];
+    $stok = $_POST['stok'];
     
-    mysqli_query($conn,"insert into barang values('','$id','$nama','$harga','$tgl')")
+    mysqli_query($conn,"insert into barang values('','$id','$nama','$harga','$tgl','$harga','$stok')")
     or die(mysqli_error($conn));
     echo '<script>window.location="barang.php"</script>';
 }
@@ -53,6 +55,14 @@ $kodeBarang = $huruf . sprintf("%03s", $urutan);
                                     <i class="fa fa-plus mr-2"></i>Tambah</button>
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label><b>Harga asli</b></label>
+                        <input type="number" name="harga_asli" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label><b>stok</b></label>
+                        <input type="number" name="stok" class="form-control" required>
                         </div>
                     </div>
                 </form>
