@@ -103,13 +103,9 @@ $kodeBarang = $huruf . sprintf("%03s", $urutan);
                             <td><?php echo $d['nama_barang']; ?></td>
                             <td><?php echo $d['harga_barang']; ?></td>
                             <td><?php echo $d['tgl_input']; ?></td>
-                            <td>
-                                <a class="btn btn-primary btn-xs" href="edit.php?id=<?php echo $d['id']; ?>">
-                                <i class="fa fa-pen fa-xs"></i> Edit</a>
-                                <a class="btn btn-danger btn-xs" href="?id=<?php echo $d['id_barang']; ?>" 
-                                onclick="javascript:return confirm('Hapus Data Barang ?');">
-                                <i class="fa fa-trash fa-xs"></i> Hapus</a>
-                            </td>
+                            <td><?php echo $d['harga_asli']; ?></td>
+                            <td><?php echo $d['stok']; ?></td>
+                            
 						</tr>
                         <?php }?>
 					</tbody>
