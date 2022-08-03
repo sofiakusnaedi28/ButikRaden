@@ -5,10 +5,10 @@ if(!empty($_POST['add_barang'])){
     $nama = $_POST['nama_barang'];
     $harga = $_POST['harga_barang'];
     $tgl = $_POST['tgl_input'];
-    $harga = $_POST['harga_asli'];
+    $hargaasli = $_POST['harga_asli'];
     $stok = $_POST['stok'];
     
-    mysqli_query($conn,"insert into barang values('','$id','$nama','$harga','$tgl','$harga','$stok')")
+    mysqli_query($conn,"insert into barang values('','$id','$nama','$harga','$tgl','$hargaasli','$stok')")
     or die(mysqli_error($conn));
     echo '<script>window.location="barang.php"</script>';
 }
@@ -85,7 +85,7 @@ $kodeBarang = $huruf . sprintf("%03s", $urutan);
                                 <th>No</th>
                                 <th>Id Barang</th>
                                 <th>Nama Barang</th>
-                                <th>Harga</th>
+                                <th>Harga barang</th>
                                 <th>Tanggal Input</th>
                                 <th>harga asli</th>
                                 <th>stok</th>
@@ -93,10 +93,20 @@ $kodeBarang = $huruf . sprintf("%03s", $urutan);
                         </thead>
                         <tbody>
                         <?php 
-                        $no = 1;
-                        $data_barang = mysqli_query($conn,"select * from barang");
-                        while($d = mysqli_fetch_array($data_barang)){
-                            ?>
+                       
+                       $totalBeli = 0;
+                       $totalJual = 0;
+                       $totalStok = 0;
+                       if($_GET['stok'] == 'yes')
+                       {
+                           $hasil = $lihat -> barang_stok();
+
+                       }else{
+                           $hasil = $lihat -> barang();
+                       }
+                       $no=1;
+                       foreach($hasil as $isi) {
+                   ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $d['id_barang']; ?></td>
