@@ -8,36 +8,36 @@ body {
     color: #181818 !important;
 }
 .navbar-nav li a:hover{
-  color: #bb4497 !important;
+  color: #64c1ea !important;
 }
 .bg-purple{
   background: #ac3e71 !important;
 }
 .btn-purple{
-  background: #7952b3 !important;
+  background: #0fb7e6 !important;
   color: #fff !important;
 }
 .btn-purple:hover{
   background: #fff !important;
-  color: #7952b3 !important;
+  color: #0fb7e6 !important;
   border: 1px solid #7952b344;
 }
 .btn-purple-light{
   background: #fff !important;
-  color: #7952b3 !important;
-  border: 1px solid #7952b344;
+  color: #0fb7e6 !important;
+  border: 1px solid #0fb7e6;
 }
 .btn-purple-light:hover{
-  background: #7952b3 !important;
+  background: #0fb7e6 !important;
   color: #fff !important;
-  border: 1px solid #7952b3;
+  border: 1px solid #0fb7e6;
 }
 .thead-purple{
-  background: #7952b3 !important;
+  background: #0fb7e6 !important;
   color: #fff !important;
 }
 .text-purple{
-  color: #7952b3 !important;
+  color: #0fb7e6 !important;
 }
 .form-control-user{
   border-radius: 50px;
