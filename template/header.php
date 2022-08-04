@@ -102,7 +102,7 @@ button.buttons-html5{
   
     <div class="col-md-3 mb-2 d-none d-md-block">
         <div class="card">
-            <div class="card-header bg-purple">
+            <div class="card-header bg-info">
                 <div class="card-tittle text-white">Hallo, <b><?php echo $userr ?></b></div>
             </div>
             <div class="card-body">

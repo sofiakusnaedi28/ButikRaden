@@ -4,11 +4,11 @@ if(!empty($_POST['add_barang'])){
     $id = $_POST['id_barang'];
     $nama = $_POST['nama_barang'];
     $harga = $_POST['harga_barang'];
+    $harga1 = $_POST['harga_asli'];
     $tgl = $_POST['tgl_input'];
-    $hargaasli = $_POST['harga_asli'];
     $stok = $_POST['stok'];
     
-    mysqli_query($conn,"insert into barang values('','$id','$nama','$harga','$tgl','$hargaasli','$stok')")
+    mysqli_query($conn,"insert into barang values('','$id','$nama','$harga','$harga1','$tgl','$stok')")
     or die(mysqli_error($conn));
     echo '<script>window.location="barang.php"</script>';
 }
@@ -47,6 +47,10 @@ $kodeBarang = $huruf . sprintf("%03s", $urutan);
                         <input type="number" name="harga_barang" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
+                        <label><b>Harga Asli</b></label>
+                        <input type="number" name="harga_asli" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
                         <label><b>Tanggal Input</b></label>
                             <div class="input-group">
                                 <input type="text" name="tgl_input" class="form-control" value="<?php echo  date("j F Y, G:i");?>" readonly>
@@ -55,14 +59,6 @@ $kodeBarang = $huruf . sprintf("%03s", $urutan);
                                     <i class="fa fa-plus mr-2"></i>Tambah</button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                        <label><b>Harga asli</b></label>
-                        <input type="number" name="harga_asli" class="form-control" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                        <label><b>stok</b></label>
-                        <input type="number" name="" class="form-control" required>
                         </div>
                     </div>
                 </form>
@@ -85,35 +81,32 @@ $kodeBarang = $huruf . sprintf("%03s", $urutan);
                                 <th>No</th>
                                 <th>Id Barang</th>
                                 <th>Nama Barang</th>
-                                <th>Harga barang</th>
+                                <th>Harga Barang</th>
+                                <th>Harga Asli</th>
                                 <th>Tanggal Input</th>
-                                <th>harga asli</th>
-                                <th>stok</th>
+                                <th>Stok</th>
+
                             </tr>
                         </thead>
                         <tbody>
                         <?php 
-                       
-                       $totalBeli = 0;
-                       $totalJual = 0;
-                       $totalStok = 0;
-                       if($_GET['stok'] == 'yes')
-                       {
-                           $hasil = $lihat -> barang_stok();
-
-                       }else{
-                           $hasil = $lihat -> barang();
-                       }
-                       $no=1;
-                       foreach($hasil as $isi) {
-                   ?>
+                        $no = 1;
+                        $data_barang = mysqli_query($conn,"select * from barang");
+                        while($d = mysqli_fetch_array($data_barang)){
+                            ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $d['id_barang']; ?></td>
                             <td><?php echo $d['nama_barang']; ?></td>
                             <td><?php echo $d['harga_barang']; ?></td>
+                            <td><?php echo $d['harga_asli']; ?></td>
                             <td><?php echo $d['tgl_input']; ?></td>
-                           
+                            <td><?php echo $d['stok']; ?></td>
+                            <td>
+                                <a class="btn btn-primary btn-xs" href="edit.php?id=<?php echo $d['id']; ?>">
+                                <i class="fa fa-pen fa-xs"></i> Edit</a>
+
+                            </td>
 						</tr>
                         <?php }?>
 					</tbody>
